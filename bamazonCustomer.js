@@ -21,14 +21,18 @@ connection.connect(function (err) {
     start();
 });
 
-connection.query("SELECT * FROM products", function (err, res) {
-    console.log("-----------------------------------");
-    if (err) throw err;
-    for (var i = 0; i < res.length; i++) {
-        console.log("\nID #" + res[i].id + " : " + res[i].product_name + " | Price: $" + res[i].price);
-    }
-    console.log("-----------------------------------");
-});
+function inventoryDisplay() {
+    connection.query("SELECT * FROM products", function (err, res) {
+        console.log("-----------------------------------");
+        if (err) throw err;
+        for (var i = 0; i < res.length; i++) {
+            console.log("\nID #" + res[i].id + " : " + res[i].product_name + " | Price: $" + res[i].price);
+        }
+        console.log("-----------------------------------");
+    })
+};
+
+inventoryDisplay();
 
 function start() {
     inquirer
@@ -52,16 +56,16 @@ function start() {
                 if (quantityAsking <= res[0].quantity) {
                     var totalCost = res[0].price * quantityAsking;
                     console.log("Your order is in stock!");
-                    console.log("Your total cost for " + quantityAsking + " " + res[0].product_name + " is $" + totalCost + ". Thank you!");
-                    
+                    console.log("\nYour total cost for " + quantityAsking + " " + res[0].product_name + " is $" + totalCost + ". Thank you!");
+
                     connection.query("UPDATE products SET quantity = quantity - " + quantityAsking + " WHERE id = " + IDrequest);
                     connection.end();
-                } else {
-                    console.log("Our apologies, but we do not have enough " + res[0].product_name + " to complete your order. Please select a different quantity.");
+                }
+                else {
+                    console.log("\nOur apologies, but we do not have enough " + res[0].product_name + "(s) to complete your order. Please select a different quantity.\n");
                     start();
+                    inventoryDisplay();
                 };
             });
         });
 }
-
-
