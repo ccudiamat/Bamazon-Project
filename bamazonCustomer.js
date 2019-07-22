@@ -30,17 +30,19 @@ function start() {
         console.log("-----------------------------------");
     });
     inquirer
-        .prompt({
+        .prompt([
+            {
             name: "initial",
             type: "input",
-            message: "Please enter id of product you would like to purchase."
-        })
+            message: "Please enter ID of the product you would like to purchase."
+        }, {
+            name: "quantity",
+            type: "input",
+            message: "How much of the product would you like to purchase?"
+        }])
         .then(function (answer) {
-            if (answer.initial === res[i].id) {
-                connection.end();
-            }
-            else if (answer.initial === undefined) {
-                connection.end();
-            }
+
         });
 }
+
+
