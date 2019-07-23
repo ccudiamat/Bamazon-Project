@@ -30,9 +30,9 @@ Utilizing node.js and mySQL, created my version of an inventory store.
 Click [here!](https://drive.google.com/file/d/1jYJOpXbHjB4oDKalE7HDXBwqkFSdoAYC/view?usp=sharing)
 
 ## Technologies used:
-node.js
-Javascript
-mySQL
+* node.js
+* Javascript
+* mySQL
 
 ## Author:
 * **Christopher Cudiamat**
