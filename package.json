@@ -1,0 +1,24 @@
+{
+  "name": "Bamazon-Project",
+  "version": "1.0.0",
+  "description": "Utilizing node.js and mySQL, created my version of an inventory store.",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccudiamat/Bamazon-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccudiamat/Bamazon-Project/issues"
+  },
+  "homepage": "https://github.com/ccudiamat/Bamazon-Project#readme",
+  "dependencies": {
+    "inquirer": "^6.5.0",
+    "mysql": "^2.17.1"
+  }
+}
